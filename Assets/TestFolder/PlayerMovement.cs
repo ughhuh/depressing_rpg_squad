@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 2f; //movement speed variable
-    Rigidbody2D rb;
+    Rigidbody2D rb2D;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 playerMovement = inputVector * movementSpeed; // applying movement speed to player's input
 
-        rb.MovePosition(rb.position + playerMovement);
+        rb2D.MovePosition(rb2D.position + playerMovement); // move the player
 
     }
 
