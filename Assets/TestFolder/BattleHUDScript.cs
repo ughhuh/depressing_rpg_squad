@@ -14,7 +14,6 @@ public class BattleHUDScript : MonoBehaviour
         hpBar.value = unit.currentHP; // set current hp as current in hp bar
     }
 
-
     public void SetHP(int hp)
     {
         hpBar.value = hp;
