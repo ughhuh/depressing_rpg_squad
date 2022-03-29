@@ -22,57 +22,55 @@ public enum StationState { NONE, LEFT, CENTER, RIGHT } // enumerator that stores
 
 public class BattleManagerScript : MonoBehaviour
 {
-    public BattleState state; // variable used for setting and changing battle states
-    public StationState station; // variable used fot setting and changing station states
+    private BattleState state; // variable used for setting and changing battle states
+    private StationState station; // variable used fot setting and changing station states
 
-    public GameObject playerPrefab; // get player prefab
-    public GameObject Ally01Prefab; // get ally01 prefab
-    public GameObject Ally02Prefab; // get ally 02 prefab
-    public GameObject enemyPrefab; // get enemy prefab
+    // get spawning locations for player and enemy
+    [SerializeField] Transform playerCenterStation;
+    [SerializeField] Transform playerRightStation;
+    [SerializeField] Transform playerLeftStation;
+    [SerializeField] Transform enemyStation;
 
-    public Transform playerCenterStation; // get location of player station
-    public Transform playerRightStation; // get location of player station
-    public Transform playerLeftStation; // get location of player station
-    public Transform enemyStation; // get location of enemy station
+    // used for damage and healing calculations
+    [SerializeField] UnitScript playerUnit;
+    [SerializeField] UnitScript enemyUnit; 
+    [SerializeField] UnitScript ally01Unit; 
+    [SerializeField] UnitScript ally02Unit; 
+    private UnitScript targetUnit;
 
-    private UnitScript playerUnit; // store player data
-    private UnitScript enemyUnit; // store enemy data
-    private UnitScript ally01Unit; // store ally 01 data
-    private UnitScript ally02Unit; // store ally 02 data
-    private UnitScript targetUnit; //used for unit management
+    public Unit_Stats playerStats; // store player data
+    public Unit_Stats enemyStats; // store enemy data 
+    public Unit_Stats ally01Stats; // store ally 01 data
+    public Unit_Stats ally02Stats; // store ally 02 data
+    private Unit_Stats targetStats; // store target data
 
     public BattleHUDScript playerHUD; // reference to player HUD
     public BattleHUDScript enemyHUD; // reference to enemy HUD
     public BattleHUDScript ally01HUD; // reference to ally 01 HUD
     public BattleHUDScript ally02HUD; // reference to ally 02 HUD
     private BattleHUDScript targetHUD; // used for hud management
+    public BattleHUDScript gaugeHUD; // reference to gauge HUD
 
-    // private GameObject[,] positions = new GameObject[8, 8]; // array to store player's positions
 
     void Start()
-    {
+    {   
         state = BattleState.Start; // setting battle state as start
         StartCoroutine(SetupBattle()); // starting the setup process
     }
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab, playerCenterStation); // spawn player prefab on top of the station
-        playerUnit = playerGO.GetComponent<UnitScript>(); // get data about player
+        // spawn units on top of stations
+        GameObject playerGO = Instantiate(playerStats.unitModel, playerCenterStation);
+        GameObject ally01GO = Instantiate(ally01Stats.unitModel, playerRightStation);
+        GameObject ally02GO = Instantiate(ally02Stats.unitModel, playerLeftStation);
+        GameObject enemyGO = Instantiate(enemyStats.unitModel, enemyStation);
 
-        GameObject ally01GO = Instantiate(Ally01Prefab, playerRightStation); // spawn ally prefab on top of the station
-        ally01Unit = ally01GO.GetComponent<UnitScript>(); // get data about ally
-        
-        GameObject ally02GO = Instantiate(Ally02Prefab, playerLeftStation); // spawn ally prefab on top of the station
-        ally02Unit = ally02GO.GetComponent<UnitScript>(); // get data about ally
-
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyStation); // spawn enemy on top of station
-        enemyUnit = enemyGO.GetComponent<UnitScript>(); // get data about enemy
-
-        playerHUD.SetHUD(playerUnit); // pass player to HUD
-        ally01HUD.SetHUD(ally01Unit); // pass ally01 to HUD
-        ally02HUD.SetHUD(ally02Unit); // pass ally02 to HUD
-        enemyHUD.SetHUD(enemyUnit); // pass enemy to HUD
+        // pass unit stats to HUD
+        playerHUD.SetHUD(playerStats); 
+        ally01HUD.SetHUD(ally01Stats); 
+        ally02HUD.SetHUD(ally02Stats); 
+        enemyHUD.SetHUD(enemyStats); 
 
         yield return new WaitForSeconds(1f); // wait for 1 second before starting player's turn
 
@@ -82,11 +80,18 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.unitDP); // add damage to enemy
+        switch (state) // check whose turn is this and update them to the target
+        {
+            case BattleState.PlayerTurn: targetStats = playerStats; break;
+            case BattleState.Ally01Turn: targetStats = ally01Stats; break;
+            case BattleState.Ally02Turn: targetStats = ally02Stats; break;
+        }
 
-        enemyHUD.SetHP(enemyUnit.currentHP); // updating enemy hp
+        bool isDead = enemyUnit.TakeDamage(targetStats.unitDP); // add damage to enemy
+        
+        enemyHUD.SetHP(enemyStats.currentHP); // updating enemy hp
 
-        yield return new WaitForSeconds(2f); // wait for 2 seconds
+        yield return new WaitForSeconds(1f); // wait for 1 second
        
         if (isDead)
         {
@@ -108,13 +113,13 @@ public class BattleManagerScript : MonoBehaviour
     {
         switch (state) // check whose turn is this and update them to the target
         {
-            case BattleState.PlayerTurn: targetUnit = playerUnit; targetHUD = playerHUD; break;
-            case BattleState.Ally01Turn: targetUnit = ally01Unit; targetHUD = ally01HUD; break;
-            case BattleState.Ally02Turn: targetUnit = ally02Unit; targetHUD = ally02HUD; break;
+            case BattleState.PlayerTurn: targetUnit = playerUnit; targetHUD = playerHUD; targetStats = playerStats; break;
+            case BattleState.Ally01Turn: targetUnit = ally01Unit; targetHUD = ally01HUD; targetStats = ally01Stats; break;
+            case BattleState.Ally02Turn: targetUnit = ally02Unit; targetHUD = ally02HUD; targetStats = ally02Stats; break;
         }
 
-        targetUnit.Heal(5); // heal by 5 point, need to modify and set healing points through unitscript
-        targetHUD.SetHP(targetUnit.currentHP); // updating unit's hp
+        targetUnit.Heal(targetStats.unitHP); // heal by 5 point, need to modify and set healing points through unitscript
+        targetHUD.SetHP(targetStats.currentHP); // updating unit's hp
 
         yield return new WaitForSeconds(1f); // wait for 1 second
 
@@ -124,19 +129,6 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Ally01Turn: state = BattleState.Ally02Turn; break;
             case BattleState.Ally02Turn: state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
         }
-
-    }
-
-    IEnumerator MoveRight() // not ready
-    {
-        station += 1;
-
-        // playerGO.transform.SetParent(playerRightStation);
-
-        yield return new WaitForSeconds(1f); // wait for 1 second
-
-        state = BattleState.EnemyTurn; // change battle state to enemy's turn
-        StartCoroutine(EnemyTurn()); // start enemy's turn
     }
 
     IEnumerator EnemyTurn()
@@ -149,22 +141,26 @@ public class BattleManagerScript : MonoBehaviour
         {
             case 0: // player gets attacked
                 targetUnit = playerUnit;
+                targetStats = playerStats;
                 targetHUD = playerHUD;
                 break;
             case 1: //ally 01 gets attacked
                 targetUnit = ally01Unit;
+                targetStats = ally01Stats;
                 targetHUD = ally01HUD;
                 break;
             case 2: // ally 02 gets attacked
                 targetUnit = ally02Unit;
+                targetStats = ally02Stats;
                 targetHUD = ally02HUD;
                 break;
             default: break;
         }
- 
-        bool isDead = targetUnit.TakeDamage(enemyUnit.unitDP); // add damage to the target
 
-        targetHUD.SetHP(targetUnit.currentHP); // updating target hp 
+        bool isDead = targetUnit.TakeDamage(enemyStats.unitDP); // add damage to the target
+
+        targetHUD.SetHP(targetStats.currentHP); // updating target hp 
+        gaugeHUD.SetGauge(enemyStats.unitDP); // update damage gauge
 
         yield return new WaitForSeconds(1f); // waiting for 1 second
 
@@ -225,36 +221,6 @@ public class BattleManagerScript : MonoBehaviour
         }
     }
 
-    public void OnMoveRightButton()
-    {
-        switch (state) // only player and allies can move right
-        {
-            case BattleState.EnemyTurn: return;
-            case BattleState.Start: return;
-            case BattleState.Win: return;
-            case BattleState.Lose: return;
-            default: StartCoroutine(MoveRight()); break;
-        }
-    }
-
-    public void OnMoveLeftButton()
-    {
-        switch (state) // only player and allies can move left
-        {
-            case BattleState.EnemyTurn: return;
-            case BattleState.Start: return;
-            case BattleState.Win: return;
-            case BattleState.Lose: return;
-            default: break;
-        }
-
-        // get current position
-        // math
-        // move to left one
-        // if occupied, move behind (check for child objects in a parent i guess)
-
-    }
-
     public void OnFleeButton()
     {
         switch (state) // only player and allies can flee
@@ -267,6 +233,21 @@ public class BattleManagerScript : MonoBehaviour
         }
             // if it's not player's turn, button won't work
          // go back to the previous scene
+    }
+
+    public void OnUltraButton()
+    {
+        switch (targetStats.unitName) // check status and assign attacks accordingly
+        {
+            case "Ronnie": targetUnit.Rush(); break;
+            case "Paige": targetUnit.Care() ; break;
+            case "Sage": targetUnit.Fury(); break;
+            case "Vance": targetUnit.Fear(); break;
+            case "Glen": targetUnit.Omen(); break;
+        }
+
+        // assign this to its own button ffs
+        // right now the activation button is heal
     }
 
 }

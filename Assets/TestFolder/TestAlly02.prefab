@@ -95,7 +95,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710b12dd2305a04da84696e13ca0a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitLevel: 1
-  unitDP: 5
-  maxHP: 20
-  currentHP: 20
+  unitStats: {fileID: 11400000, guid: c5db9a0be636f774eb69d14edfbf55c4, type: 2}

@@ -1992,25 +1992,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &570810194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3654536410040772668, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
-  m_PrefabInstance: {fileID: 853333657}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &570810201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570810194}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128db52093a39e64bbf908585e5e1af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vcam: {fileID: 1335555552}
-  zoomSpeed: 1
 --- !u!4 &774052983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6137177608501607412, guid: a22dfd6f6a6ee024eb03d3b58890d2c3, type: 3}
@@ -2029,7 +2010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772671, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: orthographic size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_RootOrder
@@ -2041,7 +2022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8999999
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2097,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 774052983}
     - target: {fileID: 3654536410058819082, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410587128709, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_CameraDistance
@@ -2349,17 +2330,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1335555552 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3654536410058819082, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
-  m_PrefabInstance: {fileID: 853333657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1343589966
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
+  m_Name: SageData
+  m_EditorClassIdentifier: 
+  unitName: Sage
+  unitLevel: 1
+  unitModel: {fileID: 1448172932861319086, guid: 5e5b51150e010a242bf3596bf51e906e, type: 3}
+  maxHP: 20
+  currentHP: 20
+  unitDP: 3
+  unitHP: 1

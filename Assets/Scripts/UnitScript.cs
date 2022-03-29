@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class UnitScript : MonoBehaviour
 {
-    public int unitLevel;
-
-    public int unitDP;
-
-    public int maxHP;
-    public int currentHP;
-
+    [SerializeField] Unit_Stats unitStats;
+    
     public bool TakeDamage(int DP)
     {
-        currentHP -= DP;
+        unitStats.currentHP -= DP;         
 
-        if (currentHP <= 0)
+        if (unitStats.currentHP <= 0)
         {
             return true;
         }
@@ -27,10 +22,45 @@ public class UnitScript : MonoBehaviour
 
     public void Heal(int healP)
     {
-        currentHP += healP;
+        unitStats.currentHP += healP;
 
-        if (currentHP > maxHP)
-            currentHP = maxHP;
+        if (unitStats.currentHP > unitStats.maxHP)
+            unitStats.currentHP = unitStats.maxHP;
         
+    }
+
+    public void Care()
+    {
+        Debug.Log("Paige ultra attack!");
+        // perform attack
+        // set gauge to 0
+    }
+    
+    public void Fury()
+    {
+        Debug.Log("Sage ultra attack!");
+        // perform attack
+        // set gauge to 0
+    }
+
+    public void Fear()
+    {
+        Debug.Log("Vance ultra attack!");
+        // perform attack
+        // set gauge to 0
+    }
+
+    public void Omen()
+    {
+        Debug.Log("Glen ultra attack!");
+        // perform attack
+        // set gauge to 0
+    }
+
+    public void Rush()
+    {
+        Debug.Log("Ronnie ultra attack!");
+        // perform attack
+        // set gauge to 0
     }
 }

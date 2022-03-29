@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710b12dd2305a04da84696e13ca0a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitLevel: 1
-  unitDP: 3
-  maxHP: 15
-  currentHP: 15
+  unitStats: {fileID: 11400000, guid: 316330933f1c55a40a92a7de3ad03d00, type: 2}
 --- !u!1 &5413262524720250480
 GameObject:
   m_ObjectHideFlags: 0
