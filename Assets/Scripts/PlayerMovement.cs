@@ -14,19 +14,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
-        // get player input and store as floats
+         // get player input and store as floats
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-       
         Vector2 inputVector = new Vector2(horizontalInput, verticalInput); // store player movement input as a vector
         //inputVector = Vector2.ClampMagnitude(inputVector, 1); // preventing diagonal movement from being faster than horizontal/vertical movement
 
         Vector2 playerMovement = inputVector * movementSpeed; // applying movement speed to player's input
 
         rb2D.MovePosition(rb2D.position + playerMovement); // move the player
-
     }
 
 }
