@@ -5,25 +5,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-[Flags] public enum BattleState 
+public enum BattleState // store battle states
 { 
-    Start = 0, 
-    PlayerTurn = 1, 
-    EnemyTurn = 2, 
-    Win = 4, 
-    Lose = 8, 
-    Ally01Turn = 16, 
-    Ally02Turn = 32
-} // enumerator that stores battle states
+    Start, 
+    PlayerTurn, 
+    EnemyTurn, 
+    Win, 
+    Lose, 
+    Ally01Turn, 
+    Ally02Turn
+} 
 public enum StationState { NONE, LEFT, CENTER, RIGHT } // enumerator that stores player's station states
-
-
-//https://www.youtube.com/watch?v=MLF9bOBCeqg&list=PLXV-vjyZiT4b7WGjgiqMy422AVyMaigl1&index=4&ab_channel=Etredal check this out
 
 public class BattleManagerScript : MonoBehaviour
 {
-    private BattleState state; // variable used for setting and changing battle states
-    private StationState station; // variable used fot setting and changing station states
+    public BattleState state; // variable used for setting and changing battle states
 
     // get spawning locations for player and enemy
     [SerializeField] Transform playerCenterStation;
@@ -51,15 +47,19 @@ public class BattleManagerScript : MonoBehaviour
     private BattleHUDScript targetHUD; // used for hud management
     public BattleHUDScript gaugeHUD; // reference to gauge HUD
 
+    GameObject[] enemies; // stores enemies in the scene
+    int enemyNumber = 0;
 
     void Start()
-    {   
+    {
         state = BattleState.Start; // setting battle state as start
         StartCoroutine(SetupBattle()); // starting the setup process
     }
 
     IEnumerator SetupBattle()
     {
+        // spawning random enemies part
+        
         // spawn units on top of stations
         GameObject playerGO = Instantiate(playerStats.unitModel, playerCenterStation);
         GameObject ally01GO = Instantiate(ally01Stats.unitModel, playerRightStation);
@@ -70,7 +70,12 @@ public class BattleManagerScript : MonoBehaviour
         playerHUD.SetHUD(playerStats); 
         ally01HUD.SetHUD(ally01Stats); 
         ally02HUD.SetHUD(ally02Stats); 
-        enemyHUD.SetHUD(enemyStats); 
+        enemyHUD.SetHUD(enemyStats);
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyNumber = enemies.Length;
+
+        playerGO.GetComponent<PlayerMovement>().enabled = false; // disable player movement
 
         yield return new WaitForSeconds(1f); // wait for 1 second before starting player's turn
 
@@ -131,40 +136,47 @@ public class BattleManagerScript : MonoBehaviour
         }
     }
 
-    IEnumerator EnemyTurn()
+    IEnumerator EnemyTurn() // right now every enemy has the same attack and just does different amount of damage
     {
-        yield return new WaitForSeconds(1f); // waiting for 1 second
-
-        int randomNumber = Random.Range(0, 3); // get a random number of the party member
-
-        switch(randomNumber)
+        for (int i = 0; i <= enemyNumber; i++) // enemy attack loop
         {
-            case 0: // player gets attacked
-                targetUnit = playerUnit;
-                targetStats = playerStats;
-                targetHUD = playerHUD;
-                break;
-            case 1: //ally 01 gets attacked
-                targetUnit = ally01Unit;
-                targetStats = ally01Stats;
-                targetHUD = ally01HUD;
-                break;
-            case 2: // ally 02 gets attacked
-                targetUnit = ally02Unit;
-                targetStats = ally02Stats;
-                targetHUD = ally02HUD;
-                break;
-            default: break;
+            yield return new WaitForSeconds(1f); // waiting for 1 second
+
+            int randomNumber = Random.Range(0, 3); // get a random number of the party member
+
+            switch (randomNumber)
+            {
+                case 0: // player gets attacked
+                    targetUnit = playerUnit;
+                    targetStats = playerStats;
+                    targetHUD = playerHUD;
+                    break;
+                case 1: //ally 01 gets attacked
+                    targetUnit = ally01Unit;
+                    targetStats = ally01Stats;
+                    targetHUD = ally01HUD;
+                    break;
+                case 2: // ally 02 gets attacked
+                    targetUnit = ally02Unit;
+                    targetStats = ally02Stats;
+                    targetHUD = ally02HUD;
+                    break;
+                default: break;
+            }
+
+            targetUnit.TakeDamage(enemyStats.unitDP); // add damage to the target
+
+            targetHUD.SetHP(targetStats.currentHP); // updating target hp 
+            gaugeHUD.SetGauge(enemyStats.unitDP); // update damage gauge 
         }
 
-        bool isDead = targetUnit.TakeDamage(enemyStats.unitDP); // add damage to the target
-
-        targetHUD.SetHP(targetStats.currentHP); // updating target hp 
-        gaugeHUD.SetGauge(enemyStats.unitDP); // update damage gauge
+        bool isDead = playerUnit.CheckHP();
+        bool isDead01 = ally01Unit.CheckHP();
+        bool isDead02 = ally02Unit.CheckHP();
 
         yield return new WaitForSeconds(1f); // waiting for 1 second
 
-        if (isDead)
+        if (isDead && isDead01 && isDead02)
         {
             state = BattleState.Lose; // change the battle state to lose
             EndBattle(); // end the battle
@@ -176,6 +188,46 @@ public class BattleManagerScript : MonoBehaviour
         }
 
     }
+
+    IEnumerator UltraAttack()
+    {
+        yield return new WaitForSeconds(1f);
+
+        switch (state) // check whose turn is this and update them to the target
+        {
+            case BattleState.PlayerTurn: targetUnit = playerUnit; targetStats = playerStats; break;
+            case BattleState.Ally01Turn: targetUnit = ally01Unit; targetStats = ally01Stats; break;
+            case BattleState.Ally02Turn: targetUnit = ally02Unit; targetStats = ally02Stats; break;
+        }
+
+        switch (targetStats.unitName) // check status and assign attacks accordingly
+        {
+            case "Ronnie": targetUnit.Rush(); break;
+            case "Paige": playerUnit.Care(targetStats.ultraP); ally01Unit.Care(targetStats.ultraP); ally02Unit.Care(targetStats.ultraP); break; // heal every character
+            case "Sage": enemyUnit.Fury(targetStats.ultraP); break;
+            case "Vance": targetUnit.Fear(); break;
+            case "Glen": targetUnit.Omen(); break;
+        }
+
+        gaugeHUD.ResetGauge(); // nullify gauge
+        
+        bool isDead = enemyUnit.CheckHP();
+
+        enemyHUD.SetHP(enemyStats.currentHP); // updating enemy hp
+
+        yield return new WaitForSeconds(1f); // wait for 1 second
+
+        if (isDead)
+        {
+            state = BattleState.Win; // change the battle state to win
+            EndBattle(); // end the battle
+        }
+        else
+        {
+            state = BattleState.EnemyTurn;  // proceed to enemy's turn immediately
+            StartCoroutine(EnemyTurn());
+        }
+    } 
 
     void EndBattle()
     {
@@ -206,12 +258,11 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Lose: return;
             default: StartCoroutine(PlayerAttack()); break;
         }
-
     }
 
     public void OnHealButton()
     {
-        switch (state) // only player an ally can heal
+        switch (state) // only player and ally can heal
         {
             case BattleState.EnemyTurn: return;
             case BattleState.Start: return;
@@ -237,15 +288,15 @@ public class BattleManagerScript : MonoBehaviour
 
     public void OnUltraButton()
     {
-        switch (targetStats.unitName) // check status and assign attacks accordingly
+        switch (state) // only player and ally can heal
         {
-            case "Ronnie": targetUnit.Rush(); break;
-            case "Paige": targetUnit.Care() ; break;
-            case "Sage": targetUnit.Fury(); break;
-            case "Vance": targetUnit.Fear(); break;
-            case "Glen": targetUnit.Omen(); break;
+            case BattleState.EnemyTurn: return;
+            case BattleState.Start: return;
+            case BattleState.Win: return;
+            case BattleState.Lose: return;
+            default: StartCoroutine(UltraAttack()); break;
+            // default: Debug.Log("ultra attack triggered"); break;
         }
-
         // assign this to its own button ffs
         // right now the activation button is heal
     }

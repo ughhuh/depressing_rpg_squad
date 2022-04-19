@@ -18,4 +18,5 @@ MonoBehaviour:
   maxHP: 20
   currentHP: 20
   unitDP: 3
-  unitHP: 1
+  unitHP: 2
+  ultraP: 5

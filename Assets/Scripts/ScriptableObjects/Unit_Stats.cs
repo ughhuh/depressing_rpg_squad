@@ -16,4 +16,6 @@ public class Unit_Stats : ScriptableObject
     public int unitDP;
     public int unitHP;
 
+    public int ultraP;
+
 }

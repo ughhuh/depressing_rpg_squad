@@ -3518,6 +3518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestEnemyPatrol
       objectReference: {fileID: 0}
+    - target: {fileID: 8175400472496307552, guid: 6afb83748babc4e438b09bdfa8dfc5c4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 6255709374970924793, guid: a22dfd6f6a6ee024eb03d3b58890d2c3, type: 3}
     - target: {fileID: 8699475837743769953, guid: 6afb83748babc4e438b09bdfa8dfc5c4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3581,11 +3585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1762412
+      value: 3.1762414
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.305097
+      value: 1.3050969
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3617,6 +3621,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410040772800, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654536410058819081, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654536410058819081, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3654536410058819082, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}

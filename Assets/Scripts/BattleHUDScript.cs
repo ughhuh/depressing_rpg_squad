@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class BattleHUDScript : MonoBehaviour
 {
     public Slider hpBar; // slider for HP bar
-    [SerializeField] Slider gaugeBar; // slider for gauge bar
-    
+    public Slider gaugeBar; // slider for gauge bar
+    public Button ultraButton; // reference to ultra button
+
 
     public void SetHUD(Unit_Stats unitStats)
     {
@@ -27,7 +28,17 @@ public class BattleHUDScript : MonoBehaviour
         if (gaugeBar.value > gaugeBar.maxValue)
         {
             gaugeBar.value = gaugeBar.maxValue;
-            // set active ultra button
         }
+
+        if (gaugeBar.value == gaugeBar.maxValue)
+        {
+            ultraButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void ResetGauge()
+    {
+        gaugeBar.value = 0;
+        ultraButton.gameObject.SetActive(false);
     }
 }
