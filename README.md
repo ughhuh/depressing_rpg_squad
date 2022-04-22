@@ -18,3 +18,7 @@ An RPG about girl called Ronnie and her friends in a magical world.
 - Scrampunk https://opengameart.org/content/fugly-font
 - UI https://opengameart.org/content/golden-ui-bigger-than-ever-edition
 - Dialogue https://assetstore.unity.com/packages/tools/gui/dizzydialogue-conversation-subtitle-system-121685
+- Main menu music by Alexandr Zhelanov, https://soundcloud.com/alexandr-zhelanov
+- Zone 1 music by https://opengameart.org/content/curious-critters
+- Battle music: https://opengameart.org/content/random-battle
+- Main menu background: https://opengameart.org/content/backgrounds-3
