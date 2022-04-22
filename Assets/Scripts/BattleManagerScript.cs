@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public enum BattleState // store battle states
@@ -50,15 +51,24 @@ public class BattleManagerScript : MonoBehaviour
     GameObject[] enemies; // stores enemies in the scene
     int enemyNumber = 0;
 
+    [SerializeField] SFXManager SFXManager;
+    [SerializeField] Text updateText;
+    private float typingSpeed = 0.4f;
+    private string activeName;
+
+    [SerializeField] Animator transition;
+
     void Start()
     {
+        transition.SetTrigger("Finish");
         state = BattleState.Start; // setting battle state as start
         StartCoroutine(SetupBattle()); // starting the setup process
     }
 
     IEnumerator SetupBattle()
     {
-        // spawning random enemies part
+        // spawn the first enemy
+        // check probability, spawn one more enemy (higher level lower probability)
         
         // spawn units on top of stations
         GameObject playerGO = Instantiate(playerStats.unitModel, playerCenterStation);
@@ -93,10 +103,12 @@ public class BattleManagerScript : MonoBehaviour
         }
 
         bool isDead = enemyUnit.TakeDamage(targetStats.unitDP); // add damage to enemy
-        
+
+        SFXManager.PlaySound("playerAttack");
+
         enemyHUD.SetHP(enemyStats.currentHP); // updating enemy hp
 
-        yield return new WaitForSeconds(1f); // wait for 1 second
+        yield return new WaitForSeconds(0.5f); // wait for 1 second
        
         if (isDead)
         {
@@ -107,8 +119,8 @@ public class BattleManagerScript : MonoBehaviour
         {
             switch (state) // check the status and change it accordingly
             {
-                case BattleState.PlayerTurn: state = BattleState.Ally01Turn; break;
-                case BattleState.Ally01Turn: state = BattleState.Ally02Turn; break;
+                case BattleState.PlayerTurn: state = BattleState.Ally01Turn; PlayerTurn(); break;
+                case BattleState.Ally01Turn: state = BattleState.Ally02Turn; PlayerTurn(); break;
                 case BattleState.Ally02Turn: state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
             }
         }
@@ -122,16 +134,17 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Ally01Turn: targetUnit = ally01Unit; targetHUD = ally01HUD; targetStats = ally01Stats; break;
             case BattleState.Ally02Turn: targetUnit = ally02Unit; targetHUD = ally02HUD; targetStats = ally02Stats; break;
         }
-
+        
+        SFXManager.PlaySound("playerHeal");
         targetUnit.Heal(targetStats.unitHP); // heal by 5 point, need to modify and set healing points through unitscript
         targetHUD.SetHP(targetStats.currentHP); // updating unit's hp
 
-        yield return new WaitForSeconds(1f); // wait for 1 second
+        yield return new WaitForSeconds(0.5f); // wait for 1 second
 
         switch (state) // check status and change it accordingly
         {
-            case BattleState.PlayerTurn: state = BattleState.Ally01Turn; break;
-            case BattleState.Ally01Turn: state = BattleState.Ally02Turn; break;
+            case BattleState.PlayerTurn: state = BattleState.Ally01Turn; PlayerTurn(); break;
+            case BattleState.Ally01Turn: state = BattleState.Ally02Turn; PlayerTurn(); break;
             case BattleState.Ally02Turn: state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
         }
     }
@@ -165,6 +178,7 @@ public class BattleManagerScript : MonoBehaviour
             }
 
             targetUnit.TakeDamage(enemyStats.unitDP); // add damage to the target
+            SFXManager.PlaySound("enemyAttack");
 
             targetHUD.SetHP(targetStats.currentHP); // updating target hp 
             gaugeHUD.SetGauge(enemyStats.unitDP); // update damage gauge 
@@ -233,12 +247,14 @@ public class BattleManagerScript : MonoBehaviour
     {
         if (state == BattleState.Win)
         {
+            SFXManager.PlaySound("playerWin");
             // some text like "your party won this fight"
             SceneManager.LoadScene("SampleScene"); // go back to the previous scene
             // somehow destroy the enemy you just defeated in that scene
         }
         else if (state == BattleState.Lose)
         {
+            SFXManager.PlaySound("playerLose");
             // you lost the battle
             // "you're dead / try again"
         }
@@ -246,7 +262,16 @@ public class BattleManagerScript : MonoBehaviour
     
     private void PlayerTurn()
     {
-        // a space for phrases like "choose your attack"
+        switch (state) // check whose turn it is and update them to the target and put their name into line
+        {
+            case BattleState.PlayerTurn: activeName = playerStats.unitName; break;
+            case BattleState.Ally01Turn: activeName = ally01Stats.unitName; break;
+            case BattleState.Ally02Turn: activeName = ally02Stats.unitName; break;
+            default: return;
+        }
+
+        StartCoroutine(TypeLine($"It's {activeName}'s turn! Choose your action."));
+
     } 
     public void OnAttackButton()
     {
@@ -280,7 +305,7 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Start: return;
             case BattleState.Win: return;
             case BattleState.Lose: return;
-            default: SceneManager.LoadScene("SampleScene"); break;
+            default: SFXManager.PlaySound("playerFlee"); SceneManager.LoadScene("SampleScene"); break;
         }
             // if it's not player's turn, button won't work
          // go back to the previous scene
@@ -301,4 +326,14 @@ public class BattleManagerScript : MonoBehaviour
         // right now the activation button is heal
     }
 
+    IEnumerator TypeLine(string line)
+    {
+        updateText.text = null;
+
+        foreach (char k in line) // type line letter by letter
+        {   
+            updateText.text += k;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
 }

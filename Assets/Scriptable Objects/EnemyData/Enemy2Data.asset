@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
-  m_Name: EnemyData
+  m_Name: Enemy2Data
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Faerie
   unitLevel: 1
-  unitModel: {fileID: 302006200209328180, guid: 224d8cc949be3204fb731ffa92f572ed, type: 3}
-  maxHP: 100
-  currentHP: 31
-  unitDP: 5
-  unitHP: 0
+  unitModel: {fileID: 0}
+  maxHP: 225
+  currentHP: 225
+  unitDP: 25
+  unitHP: 50
+  ultraP: 0

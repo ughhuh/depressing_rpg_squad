@@ -5,23 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class EnemyPatroling : MonoBehaviour
 {
-    /* what to make:
-     * patrol a limited zone
-     * when player is in the area, go to player
-     */
+    [SerializeField] Animator transition;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] SFXManager SFXManager;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+
         if (col.tag == "Player") // check if collision happened with a player
         {
-            Destroy(gameObject); // destroy enemy
-            SceneManager.LoadScene("SampleBattleScene"); // load battle scene
+            StartCoroutine(LoadScene());
         }
+    }
+
+    IEnumerator LoadScene()
+    {
+        transition.SetTrigger("Start");
+        SFXManager.PlaySound("battleTransition");
+
+        yield return new WaitForSeconds(1f);
+
+        // Destroy(this.gameObject); // destroy enemy
+        SceneManager.LoadScene("SampleBattleScene"); // load battle scene
     }
 }
