@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: ???
   unitLevel: 1
-  unitModel: {fileID: 0}
+  unitModel: {fileID: 3895849499191647915, guid: d93fa078418c7654cbec753dd2713bef, type: 3}
   maxHP: 1500
   currentHP: 1500
   unitDP: 20

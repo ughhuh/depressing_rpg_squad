@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: GlenData
   m_EditorClassIdentifier: 
-  unitName: Glen
+  unitName: GLEN
   unitLevel: 1
   unitModel: {fileID: 0}
-  maxHP: 10
-  currentHP: 10
-  unitDP: 1
-  unitHP: 1
+  maxHP: 300
+  currentHP: 300
+  unitDP: 50
+  unitHP: 40
+  ultraP: 1

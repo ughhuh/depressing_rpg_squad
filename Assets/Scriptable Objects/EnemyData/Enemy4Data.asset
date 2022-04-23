@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: Enemy4Data
   m_EditorClassIdentifier: 
-  unitName: Lost ghosts
+  unitName: FLYING HEADS
   unitLevel: 1
-  unitModel: {fileID: 0}
+  unitModel: {fileID: 2099429572279121367, guid: 70c273fec40af4c42a15f74d3ba623e1, type: 3}
   maxHP: 300
   currentHP: 300
   unitDP: 30

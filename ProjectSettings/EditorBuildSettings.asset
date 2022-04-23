@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Others/MainMenu.unity
+    guid: f6acdc44982383f49aead8b54bdd7a91
+  - enabled: 1
+    path: Assets/Scenes/Levels/Zone1.unity
+    guid: 8a2a04a3e1f81374d923006e5f467a08
+  - enabled: 1
+    path: Assets/Scenes/Others/SampleBattleScene.unity
+    guid: 5dfb272e2b6091740bd102cf7df78fb3
+  - enabled: 1
+    path: Assets/Scenes/Others/LoseScene.unity
+    guid: 244d05afee637b34f8a1ee866ddea728
+  - enabled: 0
     path: Assets/TestFolder/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/TestFolder/SampleBattleScene.unity
-    guid: 5dfb272e2b6091740bd102cf7df78fb3
   m_configObjects: {}

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: RonnieData
   m_EditorClassIdentifier: 
-  unitName: Ronnie
+  unitName: RONNIE
   unitLevel: 1
   unitModel: {fileID: 7320418075307457954, guid: a22dfd6f6a6ee024eb03d3b58890d2c3, type: 3}
-  maxHP: 20
-  currentHP: 20
-  unitDP: 10
-  unitHP: 3
+  maxHP: 250
+  currentHP: 250
+  unitDP: 75
+  unitHP: 75
+  ultraP: 50

@@ -48,15 +48,15 @@ public class BattleManagerScript : MonoBehaviour
     private BattleHUDScript targetHUD; // used for hud management
     public BattleHUDScript gaugeHUD; // reference to gauge HUD
 
-    GameObject[] enemies; // stores enemies in the scene
-    int enemyNumber = 0;
+    [SerializeField] SFXManager SFXManager; // reference to sound manager
+    [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] Text updateText; // reference to running text
+    private float typingSpeed = 0.05f; // reference to typing speed
+    private string activeName; // temp storage of playable character's name
 
-    [SerializeField] SFXManager SFXManager;
-    [SerializeField] Text updateText;
-    private float typingSpeed = 0.4f;
-    private string activeName;
+    [SerializeField] Animator transition; // reference to tanimator handling transitions
 
-    [SerializeField] Animator transition;
+    public Unit_Stats[] enemyPool; // pool of enemies available for spawning
 
     void Start()
     {
@@ -67,23 +67,23 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        // spawn the first enemy
-        // check probability, spawn one more enemy (higher level lower probability)
-        
+        int enemy = Random.Range(0, 5); // randomly pick an enemy to spawn
+
         // spawn units on top of stations
         GameObject playerGO = Instantiate(playerStats.unitModel, playerCenterStation);
         GameObject ally01GO = Instantiate(ally01Stats.unitModel, playerRightStation);
         GameObject ally02GO = Instantiate(ally02Stats.unitModel, playerLeftStation);
-        GameObject enemyGO = Instantiate(enemyStats.unitModel, enemyStation);
+        GameObject enemyGO = Instantiate(enemyPool[enemy].unitModel, enemyStation);
 
+        enemyUnit = enemyGO.GetComponent<UnitScript>();
+        enemyUnit.SetupEnemy(); // setup temporary stats for enemy
+        enemyStats = enemyPool[enemy]; // assign enemy stats to current enemy
+        
         // pass unit stats to HUD
         playerHUD.SetHUD(playerStats); 
         ally01HUD.SetHUD(ally01Stats); 
         ally02HUD.SetHUD(ally02Stats); 
         enemyHUD.SetHUD(enemyStats);
-
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyNumber = enemies.Length;
 
         playerGO.GetComponent<PlayerMovement>().enabled = false; // disable player movement
 
@@ -101,19 +101,22 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Ally01Turn: targetStats = ally01Stats; break;
             case BattleState.Ally02Turn: targetStats = ally02Stats; break;
         }
+        StartCoroutine(TypeLine($"{targetStats.unitName} ATTACKS {enemyStats.unitName}!"));
 
-        bool isDead = enemyUnit.TakeDamage(targetStats.unitDP); // add damage to enemy
+        bool isDead = enemyUnit.TakeDamage(targetStats.unitDP, false); // add damage to enemy
 
         SFXManager.PlaySound("playerAttack");
 
-        enemyHUD.SetHP(enemyStats.currentHP); // updating enemy hp
+        enemyHUD.SetHP(enemyUnit.enemyCurrentHP); // updating enemy hp
 
-        yield return new WaitForSeconds(0.5f); // wait for 1 second
-       
+        yield return new WaitForSeconds(0.5f); // wait a bit
+        StartCoroutine(TypeLine($"{enemyStats.unitName} TOOK {enemyUnit.enemyCurrentHP} DAMAGE"));
+        yield return new WaitForSeconds(0.5f); // wait a bit more
+
         if (isDead)
         {
             state = BattleState.Win; // change the battle state to win
-            EndBattle(); // end the battle
+            StartCoroutine(EndBattle()); // end the battle
         }
         else
         {
@@ -136,6 +139,7 @@ public class BattleManagerScript : MonoBehaviour
         }
         
         SFXManager.PlaySound("playerHeal");
+        StartCoroutine(TypeLine($"{targetStats.unitName} HEALS {targetStats.unitHP} POINTS"));
         targetUnit.Heal(targetStats.unitHP); // heal by 5 point, need to modify and set healing points through unitscript
         targetHUD.SetHP(targetStats.currentHP); // updating unit's hp
 
@@ -151,38 +155,8 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator EnemyTurn() // right now every enemy has the same attack and just does different amount of damage
     {
-        for (int i = 0; i <= enemyNumber; i++) // enemy attack loop
-        {
-            yield return new WaitForSeconds(1f); // waiting for 1 second
-
-            int randomNumber = Random.Range(0, 3); // get a random number of the party member
-
-            switch (randomNumber)
-            {
-                case 0: // player gets attacked
-                    targetUnit = playerUnit;
-                    targetStats = playerStats;
-                    targetHUD = playerHUD;
-                    break;
-                case 1: //ally 01 gets attacked
-                    targetUnit = ally01Unit;
-                    targetStats = ally01Stats;
-                    targetHUD = ally01HUD;
-                    break;
-                case 2: // ally 02 gets attacked
-                    targetUnit = ally02Unit;
-                    targetStats = ally02Stats;
-                    targetHUD = ally02HUD;
-                    break;
-                default: break;
-            }
-
-            targetUnit.TakeDamage(enemyStats.unitDP); // add damage to the target
-            SFXManager.PlaySound("enemyAttack");
-
-            targetHUD.SetHP(targetStats.currentHP); // updating target hp 
-            gaugeHUD.SetGauge(enemyStats.unitDP); // update damage gauge 
-        }
+        yield return new WaitForSeconds(0.5f); // waiting for 1 second
+        StartCoroutine(EnemyAttack());
 
         bool isDead = playerUnit.CheckHP();
         bool isDead01 = ally01Unit.CheckHP();
@@ -193,7 +167,7 @@ public class BattleManagerScript : MonoBehaviour
         if (isDead && isDead01 && isDead02)
         {
             state = BattleState.Lose; // change the battle state to lose
-            EndBattle(); // end the battle
+            StartCoroutine(EndBattle()); // end the battle
         }
         else
         {
@@ -201,6 +175,42 @@ public class BattleManagerScript : MonoBehaviour
             PlayerTurn(); // start player's turn
         }
 
+    }
+
+    IEnumerator EnemyAttack()
+    {
+        int randomNumber = Random.Range(0, 3); // get a random number of the party member
+
+        switch (randomNumber)
+        {
+            case 0: // player gets attacked
+                targetUnit = playerUnit;
+                targetStats = playerStats;
+                targetHUD = playerHUD;
+                break;
+            case 1: //ally 01 gets attacked
+                targetUnit = ally01Unit;
+                targetStats = ally01Stats;
+                targetHUD = ally01HUD;
+                break;
+            case 2: // ally 02 gets attacked
+                targetUnit = ally02Unit;
+                targetStats = ally02Stats;
+                targetHUD = ally02HUD;
+                break;
+            default: break;
+        }
+        StartCoroutine(TypeLine($"{enemyStats.unitName} ATTACKS {targetStats.unitName}!"));
+
+        targetUnit.TakeDamage(enemyUnit.enemyDP, true); // add damage to the target
+        SFXManager.PlaySound("enemyAttack");
+
+        targetHUD.SetHP(targetStats.currentHP); // updating target hp 
+        gaugeHUD.SetGauge(enemyUnit.enemyDP); // update damage gauge 
+
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(TypeLine($"{targetStats.unitName} TOOK {enemyUnit.enemyDP} DAMAGE"));
     }
 
     IEnumerator UltraAttack()
@@ -223,18 +233,19 @@ public class BattleManagerScript : MonoBehaviour
             case "Glen": targetUnit.Omen(); break;
         }
 
+        SFXManager.PlaySound("ultraAttack"); // play sfx
         gaugeHUD.ResetGauge(); // nullify gauge
         
         bool isDead = enemyUnit.CheckHP();
 
-        enemyHUD.SetHP(enemyStats.currentHP); // updating enemy hp
+        enemyHUD.SetHP(enemyUnit.enemyCurrentHP); // updating enemy hp
 
         yield return new WaitForSeconds(1f); // wait for 1 second
 
         if (isDead)
         {
             state = BattleState.Win; // change the battle state to win
-            EndBattle(); // end the battle
+            StartCoroutine(EndBattle()); // end the battle
         }
         else
         {
@@ -243,20 +254,23 @@ public class BattleManagerScript : MonoBehaviour
         }
     } 
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.Win)
         {
+            backgroundMusic.Stop();
             SFXManager.PlaySound("playerWin");
-            // some text like "your party won this fight"
-            SceneManager.LoadScene("SampleScene"); // go back to the previous scene
-            // somehow destroy the enemy you just defeated in that scene
+            StartCoroutine(TypeLine("YOUR PARTY WON!"));
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene("Zone1"); // go back to the previous scene
         }
         else if (state == BattleState.Lose)
         {
+            backgroundMusic.Stop();
             SFXManager.PlaySound("playerLose");
-            // you lost the battle
-            // "you're dead / try again"
+            StartCoroutine(TypeLine("YOUR PARTY WAS SLAIN..."));
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene("LoseScene");
         }
     }   
     
@@ -270,9 +284,10 @@ public class BattleManagerScript : MonoBehaviour
             default: return;
         }
 
-        StartCoroutine(TypeLine($"It's {activeName}'s turn! Choose your action."));
+        StartCoroutine(TypeLine($"IT'S {activeName}'S TURN! CHOOSE YOUR ACTION."));
 
     } 
+
     public void OnAttackButton()
     {
         switch (state) // only player and ally can attack
@@ -305,7 +320,7 @@ public class BattleManagerScript : MonoBehaviour
             case BattleState.Start: return;
             case BattleState.Win: return;
             case BattleState.Lose: return;
-            default: SFXManager.PlaySound("playerFlee"); SceneManager.LoadScene("SampleScene"); break;
+            default: backgroundMusic.Stop(); SFXManager.PlaySound("playerFlee"); SceneManager.LoadScene("Zone1"); break;
         }
             // if it's not player's turn, button won't work
          // go back to the previous scene
@@ -328,7 +343,11 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator TypeLine(string line)
     {
-        updateText.text = null;
+        // updateText.text = null;
+        // fix the typing:
+        // wait for the line to finish typing
+        // then nullify text
+        // only then allow to type again
 
         foreach (char k in line) // type line letter by letter
         {   

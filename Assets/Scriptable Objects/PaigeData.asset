@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: PaigeData
   m_EditorClassIdentifier: 
-  unitName: Paige
+  unitName: PAIGE
   unitLevel: 1
   unitModel: {fileID: 2956499439644041616, guid: 1d917a334c58a9b4b8c604c172286393, type: 3}
-  maxHP: 20
-  currentHP: 20
-  unitDP: 5
-  unitHP: 2
-  ultraP: 8
+  maxHP: 200
+  currentHP: 200
+  unitDP: 50
+  unitHP: 150
+  ultraP: 100

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: Enemy3Data
   m_EditorClassIdentifier: 
-  unitName: Local spirit
+  unitName: LOCAL SPIRIT
   unitLevel: 1
-  unitModel: {fileID: 0}
+  unitModel: {fileID: 4243832814217699788, guid: 2a29e5d4f7fcd914da0fca1e5d8298b0, type: 3}
   maxHP: 225
   currentHP: 225
   unitDP: 50

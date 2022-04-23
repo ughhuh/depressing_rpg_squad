@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: SageData
   m_EditorClassIdentifier: 
-  unitName: Sage
+  unitName: SAGE
   unitLevel: 1
   unitModel: {fileID: 1448172932861319086, guid: 5e5b51150e010a242bf3596bf51e906e, type: 3}
-  maxHP: 20
-  currentHP: 20
-  unitDP: 3
-  unitHP: 2
-  ultraP: 5
+  maxHP: 250
+  currentHP: 250
+  unitDP: 100
+  unitHP: 50
+  ultraP: 700

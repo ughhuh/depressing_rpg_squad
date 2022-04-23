@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
+    // references to audio sources
     [SerializeField] AudioSource playerAttackSound;
     [SerializeField] AudioSource enemyAttackSound;
     [SerializeField] AudioSource playerHealSound;
     [SerializeField] AudioSource playerFleeSound;
+    [SerializeField] AudioSource playerUltraAttack;
 
     [SerializeField] AudioSource playerWinSound;
     [SerializeField] AudioSource playerLoseSound;
@@ -15,10 +17,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioSource menuClickSound;
     [SerializeField] AudioSource battleTransitionSound;
 
+    [SerializeField] public AudioSource stepsSound;
 
-    // add walking sound
-
-    public void PlaySound(string sound)
+    public void PlaySound(string sound) // get a name of sound, play a sound 
     {
         switch (sound)
         {
@@ -46,7 +47,13 @@ public class SFXManager : MonoBehaviour
             case "battleTransition":
                 battleTransitionSound.Play();
                 break;
-
+            case "ultraAttack":
+                playerUltraAttack.Play();
+                break;
+            case "steps":
+                stepsSound.PlayDelayed(stepsSound.time);
+                stepsSound.Play();
+                break;
         }
     }
 }

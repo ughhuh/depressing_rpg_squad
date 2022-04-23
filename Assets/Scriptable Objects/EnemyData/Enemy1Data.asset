@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: Enemy1Data
   m_EditorClassIdentifier: 
-  unitName: Scoup of gou
+  unitName: SCOUP OF GOU
   unitLevel: 1
-  unitModel: {fileID: 0}
+  unitModel: {fileID: 4182912603901853665, guid: 37f9a864cbb54244d92a82a80029b713, type: 3}
   maxHP: 150
   currentHP: 150
   unitDP: 20

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b646cb78874d40498ee8aa0aea03765, type: 3}
   m_Name: VanceData
   m_EditorClassIdentifier: 
-  unitName: Vance
+  unitName: VANCE
   unitLevel: 1
   unitModel: {fileID: 0}
-  maxHP: 15
-  currentHP: 15
-  unitDP: 4
-  unitHP: 0
+  maxHP: 225
+  currentHP: 225
+  unitDP: 75
+  unitHP: 100
+  ultraP: 1

@@ -5,18 +5,38 @@ using UnityEngine;
 public class UnitScript : MonoBehaviour
 {
     [SerializeField] Unit_Stats unitStats;
-    
-    public bool TakeDamage(int DP)
-    {
-        unitStats.currentHP -= DP;         
 
-        if (unitStats.currentHP <= 0)
+    public int enemyCurrentHP;
+    public int enemyMaxHP;
+    public int enemyDP;
+    
+    public bool TakeDamage(int DP, bool isPlayer)
+    {
+        if (isPlayer == true) // if it's player, damage unit
         {
-            return true;
+            unitStats.currentHP -= DP;
+
+            if (unitStats.currentHP <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
         }
-        else
+        else // if it's enemy, damage temp points
         {
-            return false;
+            enemyCurrentHP -= DP;
+
+            if (enemyCurrentHP <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
         }
     }
 
@@ -99,5 +119,12 @@ public class UnitScript : MonoBehaviour
         // pick target according to the number
         // picked enemy takes damage
         // rinse and repeat 3-5 times (pick random number again)
+    }
+
+    public void SetupEnemy()
+    {
+        enemyCurrentHP = unitStats.currentHP;
+        enemyMaxHP = unitStats.maxHP;
+        enemyDP = unitStats.unitDP;
     }
 }
