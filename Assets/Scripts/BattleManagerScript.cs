@@ -87,7 +87,8 @@ public class BattleManagerScript : MonoBehaviour
 
         playerGO.GetComponent<PlayerMovement>().enabled = false; // disable player movement
 
-        yield return new WaitForSeconds(1f); // wait for 1 second before starting player's turn
+        StartCoroutine(TypeLine($"YOU RAN INTO A WILD {enemyStats.unitName}!"));
+        yield return new WaitForSeconds(3f); // wait for 1 second before starting player's turn
 
         state = BattleState.PlayerTurn; // set battle state to player's turn
         PlayerTurn(); // start player's turn
@@ -109,9 +110,9 @@ public class BattleManagerScript : MonoBehaviour
 
         enemyHUD.SetHP(enemyUnit.enemyCurrentHP); // updating enemy hp
 
-        yield return new WaitForSeconds(0.5f); // wait a bit
-        StartCoroutine(TypeLine($"{enemyStats.unitName} TOOK {enemyUnit.enemyCurrentHP} DAMAGE"));
-        yield return new WaitForSeconds(0.5f); // wait a bit more
+        yield return new WaitForSeconds(3f); // wait a bit
+        StartCoroutine(TypeLine($"{enemyStats.unitName} TOOK {targetStats.unitDP} DAMAGE"));
+        yield return new WaitForSeconds(3f); // wait a bit more
 
         if (isDead)
         {
@@ -143,7 +144,7 @@ public class BattleManagerScript : MonoBehaviour
         targetUnit.Heal(targetStats.unitHP); // heal by 5 point, need to modify and set healing points through unitscript
         targetHUD.SetHP(targetStats.currentHP); // updating unit's hp
 
-        yield return new WaitForSeconds(0.5f); // wait for 1 second
+        yield return new WaitForSeconds(5f); // wait for 1 second
 
         switch (state) // check status and change it accordingly
         {
@@ -161,8 +162,6 @@ public class BattleManagerScript : MonoBehaviour
         bool isDead = playerUnit.CheckHP();
         bool isDead01 = ally01Unit.CheckHP();
         bool isDead02 = ally02Unit.CheckHP();
-
-        yield return new WaitForSeconds(1f); // waiting for 1 second
 
         if (isDead && isDead01 && isDead02)
         {
@@ -208,9 +207,10 @@ public class BattleManagerScript : MonoBehaviour
         targetHUD.SetHP(targetStats.currentHP); // updating target hp 
         gaugeHUD.SetGauge(enemyUnit.enemyDP); // update damage gauge 
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(TypeLine($"{targetStats.unitName} TOOK {enemyUnit.enemyDP} DAMAGE"));
+        yield return new WaitForSeconds(3f);
     }
 
     IEnumerator UltraAttack()
@@ -236,11 +236,12 @@ public class BattleManagerScript : MonoBehaviour
         SFXManager.PlaySound("ultraAttack"); // play sfx
         gaugeHUD.ResetGauge(); // nullify gauge
         
+        StartCoroutine(TypeLine($"{targetStats.unitName} USES ULTRA ATTACK ON {enemyStats.unitName}!!!"));
+        yield return new WaitForSeconds(3f); // wait for 1 second
+
         bool isDead = enemyUnit.CheckHP();
 
         enemyHUD.SetHP(enemyUnit.enemyCurrentHP); // updating enemy hp
-
-        yield return new WaitForSeconds(1f); // wait for 1 second
 
         if (isDead)
         {
@@ -261,7 +262,7 @@ public class BattleManagerScript : MonoBehaviour
             backgroundMusic.Stop();
             SFXManager.PlaySound("playerWin");
             StartCoroutine(TypeLine("YOUR PARTY WON!"));
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(6f);
             SceneManager.LoadScene("Zone1"); // go back to the previous scene
         }
         else if (state == BattleState.Lose)
@@ -269,7 +270,7 @@ public class BattleManagerScript : MonoBehaviour
             backgroundMusic.Stop();
             SFXManager.PlaySound("playerLose");
             StartCoroutine(TypeLine("YOUR PARTY WAS SLAIN..."));
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(6f);
             SceneManager.LoadScene("LoseScene");
         }
     }   
@@ -343,16 +344,13 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator TypeLine(string line)
     {
-        // updateText.text = null;
-        // fix the typing:
-        // wait for the line to finish typing
-        // then nullify text
-        // only then allow to type again
+        updateText.text = null;
 
         foreach (char k in line) // type line letter by letter
         {   
             updateText.text += k;
             yield return new WaitForSeconds(typingSpeed);
         }
+
     }
 }
