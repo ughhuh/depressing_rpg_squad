@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c211b37fc685b414183c9bc1c5bf71cc, type: 3}
-  m_Name: greenNearBlue
+  m_Script: {fileID: 11500000, guid: 22cc1aaaafb8c804787ccea0e86fe638, type: 3}
+  m_Name: NewSubPreset
   m_EditorClassIdentifier: 
-  condType: 0
-  condFloat: 5
-  condObj0: Blue
-  condObj1: Green
-  condPosition: {x: 0, y: 0, z: 0}
+  font: {fileID: 12800000, guid: 1b4d4784e352b7040bfd4405bd8cbc7c, type: 3}
+  fontStyle: 0
+  fontSize: 18
+  color: {r: 1, g: 1, b: 1, a: 1}

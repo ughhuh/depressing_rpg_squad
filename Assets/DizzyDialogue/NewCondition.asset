@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c211b37fc685b414183c9bc1c5bf71cc, type: 3}
-  m_Name: greenNearBlue
+  m_Name: NewCondition
   m_EditorClassIdentifier: 
   condType: 0
   condFloat: 5
-  condObj0: Blue
-  condObj1: Green
+  condObj0: TestNPC
+  condObj1: TestPlayer
   condPosition: {x: 0, y: 0, z: 0}
