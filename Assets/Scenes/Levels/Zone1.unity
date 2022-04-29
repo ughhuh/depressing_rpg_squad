@@ -46487,10 +46487,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Subtitles Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 114331339791813466, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 114331339791813466, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 480
+      objectReference: {fileID: 0}
     - target: {fileID: 114683472574489674, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
       propertyPath: listenerTarget
       value: 
-      objectReference: {fileID: 1045014148}
+      objectReference: {fileID: 853333658}
+    - target: {fileID: 223834316623423180, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 853333663}
+    - target: {fileID: 223834316623423180, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223834316623423180, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223834316623423180, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 224010313472947410, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -46570,6 +46594,10 @@ PrefabInstance:
     - target: {fileID: 224434867473640824, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224707101983414464, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224707101983414464, guid: aa681a9df128d4b41b626b4de6241c3f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -46773,7 +46801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd98045383c92b849a0da22be19cf7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerIdentity: Elder
+  speakerIdentity: TestNPC
   line: Be careful out there child. You can't always see what's lurking in the tall
     grass.
   clip: {fileID: 0}
@@ -46782,7 +46810,7 @@ MonoBehaviour:
   power: 10
   subtitleShowsSpeaker: 1
   subtitleStyle: {fileID: 11400000, guid: 8a6694ef1e903924f8dbda433c0e6149, type: 2}
-  condition: {fileID: 11400000, guid: 0fe67bba75d5d714e9be028eeb05afa5, type: 2}
+  condition: {fileID: 0}
   conditionIsBranch: 0
   condJump0: 1
   condJump1: 2
@@ -47915,6 +47943,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!20 &853333663 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3654536410040772671, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
+  m_PrefabInstance: {fileID: 853333657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1016269826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7100997676194131433, guid: eaa9eec2ef77ab44b850be4628df6318, type: 3}
@@ -47944,11 +47977,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1045014148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3654536410058819080, guid: f01b71c74f24d62419693f27ccf137d7, type: 3}
-  m_PrefabInstance: {fileID: 853333657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1128438538 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4379833885936457668, guid: 7284648eb86dadf46908388870240f46, type: 3}
@@ -95166,7 +95194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnAwake: 1
-  loop: 0
+  loop: 1
   lines:
   - {fileID: 554195188}
 --- !u!114 &7320418075136482944
@@ -95181,4 +95209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ecf9d6b120f6c4d99c61bdf2a58b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identity: Elder
+  identity: TestNPC
