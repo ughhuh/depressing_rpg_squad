@@ -319,6 +319,114 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &216046194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216046195}
+  - component: {fileID: 216046198}
+  - component: {fileID: 216046197}
+  - component: {fileID: 216046196}
+  m_Layer: 5
+  m_Name: Scroll View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &216046195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216046194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 548554012}
+  - {fileID: 583317289}
+  m_Father: {fileID: 964234359}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &216046196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216046194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 1705663886}
+  m_Horizontal: 1
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 10
+  m_Viewport: {fileID: 548554012}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 583317290}
+  m_HorizontalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: -3
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &216046197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216046194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &216046198
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216046194}
+  m_CullTransparentMesh: 1
 --- !u!1 &220043575
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +856,7 @@ RectTransform:
   - {fileID: 2139715537}
   - {fileID: 207712709}
   - {fileID: 605941376}
+  - {fileID: 849453684}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -901,6 +1010,460 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510449247}
   m_CullTransparentMesh: 1
+--- !u!1 &548554011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548554012}
+  - component: {fileID: 548554015}
+  - component: {fileID: 548554014}
+  - component: {fileID: 548554013}
+  m_Layer: 5
+  m_Name: Viewport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &548554012
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548554011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1705663886}
+  m_Father: {fileID: 216046195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: -30, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &548554013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548554011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!114 &548554014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548554011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &548554015
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548554011}
+  m_CullTransparentMesh: 1
+--- !u!1 &557492533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 557492534}
+  - component: {fileID: 557492536}
+  - component: {fileID: 557492535}
+  - component: {fileID: 557492537}
+  m_Layer: 5
+  m_Name: Text Half2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &557492534
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557492533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1705663886}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: -2, y: 2613.3333}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &557492535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557492533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1b4d4784e352b7040bfd4405bd8cbc7c, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "After proper introductions they all headed downstairs. Outside the freshly
+    washed clothes were all dried up in the sunny weather. The clothes smelled great,
+    fresh like the summer blooms on the fruit trees. The lady had errands she had
+    to run so the three bid her farewell and first headed towards the river.\r\n\u2022\tThis
+    is where we first saw you.\r\n\u2022\tHey! Is our riverfolk awake?\r\nFew of
+    the people who had stayed by the shore were pleased to see their humorously named
+    riverfolk guest up on their feet. Glen found this phrase especially funny. The
+    crowd consisted mostly of women, young teenagers or people not fond of fishing
+    as a trade. Ronnie answered their questions with gratitude. However no one had
+    seen anyone else in the river.\r\n\u2022\tWon\u2019t you introduce your new friend
+    to me, child?\r\nThe elder waved the three closer to the porch.\r\n\u2022\tTheir
+    mother makes excellent pie, right? She never tells me what trick she plays on
+    the ingredients to make them so tasty.\r\nThe elder\u2019s words took Ronnie
+    by surprise but Paige and Glen didn\u2019t seem to mind. Apparently the elder
+    knowing things was just too normal for them but Ronnie was puzzled. The siblings
+    explained the problem quickly, leaving a lot of the traumatizing attack out.
+    The elder nodded slowly each time it was appropriate for the story. This seemed
+    to rhythm the storytelling, like it was rehearsed.\r\n\u2022\tThat explains the
+    scent of smoke that we\u2019ve felt throughout the morning.\r\n\u2022\tHave you
+    seen her friend, elder?\r\nThe elder raised their hand and quickly denied having
+    seen anyone fitting the description. With a flick of the wrist the elder pointed
+    a finger upwards, signalling \u201Chowever\u201D. This cheered the trio noticeably.
+    The elder might have a plan.\r\n\u2022\tYou three could go from house to house
+    asking people. Asking the guard house or the market could also help. But you
+    might miss someone who knows something. Besides more than half of the village
+    is out fishing and won\u2019t be back until the evening or the afternoon at the
+    earliest. But fret not. There\u2019s a fast way to gather everyone in one swoop.\r\nPaige
+    was the first to realize what the elder meant and with excitement twirled on
+    her heels to face her companions.\r\n\u2022\tA party!\r\n\u2022\tThat\u2019s
+    right, child. We\u2019ll gather most of the village for a party, food, drinks,
+    gossip.\r\nThe elder winked mischievously at them at the word gossip. People
+    would be easier to approach casually, and they might tell more than they realize
+    when they\u2019re having a good time.\r\n\u2022\tA feast need something super
+    delicious and plenty of it to get people to come! What could we get?\r\n\u2022\tYou\u2019re
+    in luck, children. The famous forest applets are in season right now.\r\n\u2022\tOoh!
+    They are so sweet and juicy!\r\n\u2022\tI prefer them slightly raw and bitter
+    myself.\r\n\u2022\tThey sound like the peacherins from my home village\r\n\u2022\tThose
+    are also similarly sweet, that is true. The applets also grow very close by in
+    the forest outside the village. They could be made into a lot of delicious treats
+    and drinks.\r\nThe elder had Paige run upstairs and fetch an old worn out map
+    from which the approximate area of the applet grove could be found.\r\n\u2022\tYou
+    might need some help with the monsters that prowl in the forest. Not to mention
+    carrying all the hunted meat and the fruit back.\r\n\u2022\tI can go and ask
+    a friend of mine from the guard station with Ronnie, can you go tell mom and
+    get our gear?\r\n\u2022\tOf course!\r\nPaige was already out the door before
+    her sibling had finished. The elder wished them luck and left to make arrangements
+    for the party. Glen and Ronnie walked through the village on what could be considered
+    the main avenue. Most doors were aligned to face the slightly curved walkway.
+    Through the gaps between the houses you could sometimes sneak a peak of the harbour.
+    At the other end of the harbour the view was blocked by a wall structure. It
+    curved from the beach and started to crawl closer towards them as they walked.
+    On closer inspection the walls were surprisingly lightweight in build. The villagers
+    probably moved the wall as the village needed the space to expand. Close to the
+    gates the walls circled back in towards the town. Gates were supposedly moved
+    last by building a new gate further up along the road. That would explain why
+    the walls followed the road even with the expansions. Ronnie also noticed guards
+    on top of the walls. It dawned to her how the narrow gap would force any attackers
+    to funnel into an effective chokehold. She thought it was a smart solution and
+    made a mental note of it to bring home. After finding the best friend and making
+    sure he was safe. That had to come first. Ronnie\u2019s thoughts were interrupted
+    when Glen took a sharp turn towards a bigger building near the stables.\r\n\u2022\tYo!
+    Who\u2019s your friend?\r\nThey noticed someone on the balcony as they were about
+    to go inside. They were young, lean but well built. A guard trainee leaned over
+    the railing and waved towards the older sibling.\r\n\u2022\tThis is the person
+    they fished out the river bank this morning!\r\n\u2022\tOh, this is the riverfolk!
+    Hiya! I\u2019m Sage.\r\n\u2022\tThe name\u2019s actually Ronnie\u2026\r\n\u2022\tHey,
+    are you busy right now? Want to go hunting?\r\n\u2022\tI got time, but why do
+    you need to go hunting, that\u2019s rare. Finally up for some good training to
+    join the guard someday?\r\n\u2022\tIn your dreams!\r\n\u2022\tWe\u2019re searching
+    for a friend of mine, he\u2019s\u2026\r\n\u2022\tYeah and we need to gather the
+    people to ask if anyone\u2019s seen him.\r\n\u2022\tI see! That calls for a party!\r\n\u2022\tYes,
+    it\u2019s a good time to go gather applets from the forest.\r\n\u2022\tYou\u2019ll
+    need a lot.\r\n\u2022\tSo they tell me.\r\n\u2022\tI can carry a bunch, way more
+    than this weakling anyway, don\u2019tcha worry riverfolk!\r\n\u2022\tI can still
+    hold my own! Anyway, you in?\r\nSage held their thumb up and headed down. The
+    two seemed to tease each other very casually.\r\n\u2022\tActually there\u2019s
+    someone else I\u2019d like to bring along.\r\n\u2022\tReally? Who?\r\n\u2022\tThe
+    new kid\u2019s apparently staying in the inn, the one who moved in almost a month
+    ago. Parents are merchants of some sort or something. The kid\u2019s shown a
+    lot of interest in joining the guard, could use the hunting training.\r\n\u2022\tUnlikely
+    it\u2019s your friend, unless you drifted in the river for a month!\r\n\u2022\tYeah,
+    you\u2019re right. But they might know my village.\r\n\u2022\tOh, there they
+    are now!\r\nThey turned around. There was an unremarkable looking bunch of people
+    around one of the trader stalls. Few more on the other side of the avenue, chatting
+    in the shade. Back near the merchant the kid in question revealed themselves.
+    They seemed at ease with the hustle going on around them. The people were pacing
+    back and forth comparing items and pondering the depth of their coin purses.
+    The trader and their regulars haggling over the same item they haggle over every
+    day by the look of it. Among them a young kid was weaving among the patrons as
+    easily as breathing. Side stepping to not bump into an over enthusiastic shopper
+    suddenly twirling on their heels to see an item against the sunlight. Carefully
+    pushing another shopper to pass between them while not disturbing their concentration
+    over another potential nick-nack for their porch. The whole scene resembled a
+    dance. The dancer noticed the party near the guard house. The trainee waved them
+    over with a joyful grin. Looking closer the dancer seemed slightly different
+    from everyone else. In the same subtle way that the stranger themself must\u2019ve
+    struck as an outsider. Their clothes were made from smoother looking fabric and
+    had clearly seen less exposure to the salty winds prevalent within the village.
+    The tan on their skin was also less aged.\r\nThe market dancer greeted the trainee,
+    answering their wide grin with a mimicked smile of their own, though less extreme
+    as the trainee\u2019s had been. The salutes for the other two were more subtle,
+    the sibling received a similar greeting as any would within the village. The
+    stranger had seen the few people they had seen this morning do a similar short
+    wave. Heartfelt and warm but casual at the same time, which was very fitting
+    for the initial image the stranger had gotten of the village and its people.
+    For the stranger the most natural greeting for a new acquaintance was an acknowledging
+    nod, which was clearly refreshing for the dancer. Their eyes studied the stranger
+    for a brief moment before nodding back with a mimicked version of something in
+    between the village greeting and the one the stranger had used. The end result
+    felt most natural. In the same way as shopping in a new place feels different
+    and unique while at the same time being familiar and just right.\r\n\u2022\tHey,
+    what\u2019s up? Some problems with the guard?\r\n\u2022\tNot exactly, here let
+    me introduce you, this is Glen and this riverfolk\u2026\r\n\u2022\tHey!\r\n\u2022\t\u2026Is
+    Ronnie. Say hiya to Vance.\r\n\u2022\tHello!\r\n\u2022\tHi.\r\n\u2022\tAah, you
+    must be the person they found in the river, feeling alright?\r\n\u2022\tNothing
+    severe, news travel fast.\r\n\u2022\tInformation is everything, and there\u2019s
+    no better place than the market for the newest gossip.\r\nRonnie\u2019s face
+    lit up but it was quickly extinguished as Vance explained that there wasn\u2019t
+    any gossip about another person who\u2019d washed ashore recently. It would require
+    a more detailed inquiry with a fitting description to recognise a traveller from
+    all the people coming and going in and around the village.\r\n\u2022\tSorry,
+    I haven\u2019t seen anyone like that.\r\n\u2022\tThat\u2019s exactly why we need
+    to host a party and get everyone questioned at once!\r\n\u2022\tA party?\r\n\u2022\tYeah,
+    it\u2019s a local custom, and better the excuse to hold it the better.\r\n\u2022\tWhy
+    not just order everyone to gather for an announcement?\r\n\u2022\tWe don\u2019t
+    much care for to be ordered around. And a short party every now and then is exactly
+    what livens up the otherwise monotonous fishing and farming cycle.\r\n\u2022\tI
+    see, that really fits the village.\r\n\u2022\tYeah, sometimes a boat crew gets
+    a huge haul of fish and that\u2019s a cause for a party. Other times someone
+    just drinks too much and a party starts to gather around the buzz.\r\n\u2022\tOr
+    someone like me gets washed up to the shore.\r\n\u2022\tExactly! See, Ronnie
+    here gets it.\r\n\u2022\tSo what do you need me for?\r\n\u2022\tWell we thought\u2026\r\n\u2022\tThese
+    two really need my help, it\u2019d be impossible to go hunt some applets and
+    whatever else the harvest might lure in all on their own without me. And you
+    were talking about the guard the other day, this would be good training for you.\r\n\u2022\tAnd
+    we could use extra hands.\r\n\u2022\tIf nothing else, to help carry my friend\u2019s
+    large ego!\r\n\u2022\tHey! Ya\u2019ll came to ask my help!\r\nVance was the first
+    to burst out laughing at the duo\u2019s childish bickering. Soon the whole group
+    was laughing at themselves. It was very easy for Paige to find them. She brought
+    her and her brother\u2019s weapons as well as backpacks for the three of them.
+    Sage found another spot to shine.\r\n\u2022\tI see the two of you are all ready,
+    but both Ronnie and Vance need to arm themselves. Follow me!\r\nSage led them
+    to the guardhouse\u2019s armoury.\r\n\u2022\tWe have all sorts of things here,
+    take ya pick! They\u2019re a bit worn out but well maintained.\r\nThey were soon
+    ready to leave the main gates and head for the forest.\r"
+--- !u!222 &557492536
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557492533}
+  m_CullTransparentMesh: 1
+--- !u!114 &557492537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557492533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!1 &583317288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583317289}
+  - component: {fileID: 583317292}
+  - component: {fileID: 583317291}
+  - component: {fileID: 583317290}
+  m_Layer: 5
+  m_Name: Scrollbar Vertical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &583317289
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583317288}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1536034149}
+  m_Father: {fileID: 216046195}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &583317290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583317288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1260395955}
+  m_HandleRect: {fileID: 1260395954}
+  m_Direction: 2
+  m_Value: 1
+  m_Size: 0.06185567
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &583317291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583317288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &583317292
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583317288}
+  m_CullTransparentMesh: 1
 --- !u!1 &605941375
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +1502,151 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &768212567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768212568}
+  - component: {fileID: 768212571}
+  - component: {fileID: 768212570}
+  - component: {fileID: 768212569}
+  m_Layer: 5
+  m_Name: BackButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &768212568
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768212567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1270678389}
+  m_Father: {fileID: 849453684}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 144, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &768212569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768212567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 768212570}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 605941375}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 849453683}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &768212570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768212567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5040922379951692529, guid: 5b3160f5cc8832d409d19ffa5a78617a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &768212571
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768212567}
+  m_CullTransparentMesh: 1
 --- !u!1 &769186386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1792,345 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849453683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849453684}
+  m_Layer: 5
+  m_Name: StoryUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &849453684
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849453683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 964234359}
+  - {fileID: 768212568}
+  m_Father: {fileID: 472056780}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &884673267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884673268}
+  - component: {fileID: 884673271}
+  - component: {fileID: 884673270}
+  - component: {fileID: 884673269}
+  m_Layer: 5
+  m_Name: Text Half1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &884673268
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884673267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1705663886}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: -2, y: 2224.6667}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &884673269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884673267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &884673270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884673267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1b4d4784e352b7040bfd4405bd8cbc7c, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "The flow caresses the river bank as the waves slowly pass the village,
+    taking the fishing rafts gently further out to the sea. The sun is lazily rising
+    above the coast to meet the soft clouds drifting from above the lands. Meeting
+    the morning and watching the youngsters go about their routines is the town elder,
+    ever vigilant and always greeting the morning from their river facing porch.
+    The air seems to sit still and heavy. By the time the children come out to play
+    the fishing vessels are already far out near the horizon. The children break
+    the stillness of the morning with their laughter and games. The elder moves their
+    hand off the arm rest in anticipation. Not soon after a steaming cup lands on
+    the arm rest from behind the elder.\r\n\u2022\tThank you, child.\r\n\u2022\tYou
+    knew again, didn\u2019t you?\r\n\u2022\tIt\u2019s my favourite drink after all.\r\nWith
+    a small chuckle the elder curls their hand around the cup, watching the river
+    with Paige. They repeat this game of theirs every morning. The elder is never
+    caught by surprise no matter what Paige tries, from changing the time when to
+    bring the drink to arriving empty handed only to walk back to fetch it soon after.
+    A sting of smoke catches the elder\u2019s nose. Looking out to the river there
+    is something small drifting towards the river\u2019s mouth from upstream. The
+    elder turns to the child and points out to the river. What are you waiting for,
+    the body language seemed to scream, though the elder lacked the words to exclaim
+    this at first. Paige followed the pointing finger with their gaze, squinting
+    against the oncoming sun rays.\r\n\u2022\tSave them!\r\nWith the elder\u2019s
+    words giving the clarity needed to realize the sight, the youngster leaped into
+    motion, running across the short distance towards the river.\r\n\u2022\tHelp!
+    Someone\u2019s in the river! Help!\r\nPaige shouts as she runs. With a jump she
+    flies over the shallower part of the shore\u2019s water to reach farther into
+    the river. There is some movement in the neighbouring houses as people peek out
+    their windows or doors to check the source of the shouting. One of the nearest
+    neighbours to the elder\u2019s house notices the elder waving towards the river
+    and Paige swimming outward on the river. The neighbours mobilize and gather to
+    the shore to help. One of them brings a rope to assist in the recovery of swimming
+    Paige. Few of the stronger teens take the rope and swim after her.\r\nAt the
+    distance Paige had reached the motionless cargo being carried by the waves. The
+    lily pad of a person\u2019s clothes were rugged and torn apart. The drift had
+    washed the all the dirt off everywhere else except the face, which still had
+    some signs of black muck, either dirt or blood, perhaps both. Nevertheless the
+    face was above water and the nose twitched with the calm rhythm of breathing.
+    It was miraculous how the face had managed to stay above the glimmering surface
+    and keep the drifter from drowning. The relaxed unconscious body had held her
+    afloat for who knows how long. Paige did not recognize the stranger so they had
+    probably sailed from further away than the village Paige had known all her life.
+    Grabbing hold of the damp napper and supporting her head above the waves Paige
+    swam towards the shore with her cargo. The river itself was helping them reach
+    the shore. Paige had feared that the morning tide would\u2019ve affected the
+    river more and pulled them both out into the sea with its monstrous strength.
+    It happened every year that someone was pulled by the tide. Some were lost, either
+    to the deep or to the monsters. Luckily the early morning meant that it was less
+    likely that they would be ambushed by a monster prowling the river. They were
+    all headed to where there was food, which at this time meant the same schools
+    of fish as the fishing boats had previously headed towards.\r\nThe teens caught
+    up with the pair and with the rope the rest of the rescue was a quick affair.
+    It had not required a lot of people to help pull them all to the shore. After
+    checking if anyone needed any immediate medical attention the group carried the
+    stranger to the Paige\u2019s house as it was one of the closest ones. Her mother
+    was also an experienced healer so it was the logical choice.\r\nAfter around
+    two hours the stranger opened their eyes. The room was dim, but there was plenty
+    of light coming through the windows. The curtains of the slightly opened window
+    fluttered. Maybe this room isn\u2019t used often, she thought as her eyes wondered
+    around the room, noticing more signs of quick dusting. The trace amounts of dust
+    that had escaped the dusting danced in the sun rays and the gentle breeze. A
+    deep inhale was refreshing, it\u2019s as if she couldn\u2019t remember when she\u2019d
+    last breathed. Something tickled her nose. Achoo! The sudden loud sneeze was
+    enough to shake her fully awake and up to the fact that she had no idea where
+    she was. There was also some movement next to the door leading out of the room.
+    The sneeze had startled a person sitting on a short stool. Paige had been fiddling
+    with some kind of crafts thing but now she put it hastily off on a table height
+    drawer in the corner. A wide smile was there to greet the stranger.\r\n\u2022\tYou\u2019re
+    awake! Mom! Moom! She woke up! Are you ok? How are you feeling? Any pain? There\u2019s
+    water if you\u2019re thirsty. You hungry? I can go get you something if you\u2026\r\n\u2022\tUhm\u2026\r\n\u2022\tCan
+    you understand me?\r\nThe youngster was so energetic, even while peeking out
+    the door to shout for their mother. Hardly any room for answers. There was sounds
+    of someone climbing the stairs.\r\n\u2022\tWhat, where\u2026?\r\n\u2022\tOh you
+    can understand, great! So what happened, why were you floating\u2026\r\n\u2022\tDear,
+    let our guest catch their breath first.\r\n\u2022\tOh, yes mom.\r\nThe voice
+    belonged to the elegant lady that had just opened the door and entered the doorway.
+    She had a basket hanging from her arm and she was drying her hands on a towel.\r\n\u2022\tYou
+    must be hungry, I brought you some leftovers from breakfast.\r\nShe placed the
+    basket on to the table next to the bed. The pitcher of water and few glasses
+    were on the table too. There hadn\u2019t been too much time to really take it
+    all in. The room was clearly a guest room, filled with all the necessary items
+    for a short stay. The rest of the space was smartly used for storage, wardrobes
+    probably filled with seasonal clothes and extra linen, towels and the like. The
+    stranger thanked for the food, but reached for the water first. She hadn\u2019t
+    realised how dry her mouth felt until now. Paige helped and poured water to the
+    glasses. The lady waved towards the door. There was a third person standing there.
+    If the stranger had to guess the quiet person was a year or two older than their
+    supposed sibling. The lady had both siblings gather chairs around the bed. It
+    was similar to having a picnic, or a birthday around the bed. The stranger had
+    started to notice some soreness in her limbs and body. But the lady didn\u2019t
+    seem worried after checking her forehead for signs of a fever. Instead offering
+    her a plate with a piece of pie. The siblings also got a piece each.\r\n\u2022\tNow
+    then, please, there\u2019s no rush.\r\n\u2022\tUhm, yes, thanks\u2026 Where am
+    I? What happened?\r\n\u2022\tWe were hoping you\u2019d tell us. We found you
+    in the river and pulled you ashore.\r\n\u2022\tI helped! I saw you with the elder
+    and swam to the river to pull you! Luckily you\u2019re not too heavy.\r\n\u2022\tDear,
+    please. Anyway, we brought you to our house to rest. I took your wet clothes,
+    washed them and they\u2019re outside drying right now. You\u2019re wearing our
+    children\u2019s clothes now, don\u2019t worry, you\u2019re free to borrow them.
+    You had some minor bruises and cuts all over, but nothing dangerous. You should
+    take it easy a while.\r\n\u2022\tI, I see. Thanks, all of you.\r\nA bite from
+    the pie. It was delicious. The stranger had forgotten that the stomach needs
+    food until now. That wasn\u2019t all. The rest of what had happened started coming
+    back as well.\r\n\u2022\tMy\u2026 There was an attack, to my village.\r\n\u2022\tWhat?\r\n\u2022\tHyss!
+    Let her tell the story.\r\nBoth kids leaned in closer after calming down. Even
+    the quiet one had raised their voice in surprise.\r\n\u2022\tThey attacked near
+    nightfall. We fought back but they had us outnumbered. Explosions everywhere.
+    We were backed against the edge of the hill trying to survive. My friend and
+    I were separated from the rest. Houses burning, smoke everywhere. River down
+    below. Then\u2026\r\nAnxiety started to build in the voice. Another gulp of water,
+    knuckles getting white as the smooth glass was being squeezed.\r\n\u2022\tLoud
+    bang, ground gave way, we fell. Hard hit, cold water, darkness was everywhere.
+    I swam upwards to the surface. Air was thick with smoke from the village above.
+    My friend called out to me. I tried swimming towards him. The current was strong.
+    Something hit me. Then nothing\u2026 how long has it been?\r\n\u2022\tThere\u2019s
+    no village for over a day\u2019s travel upriver that I know of.\r\nThe siblings
+    also shook their heads. The stranger stared at them, or maybe the entire room
+    in disbelief. How far had they been carried by the river?\r\n\u2022\tWait! What
+    about my friend? Was there someone else in the river too?\r\nThe lady and Paige
+    looked at one another. Then the quiet one spoke, gently but sure in their words.\r\n\u2022\tThe
+    elder had people scout the river for things being carried from upstream. So far
+    they\u2019ve only found some pieces of trash like wood. I was there watching.\r\n\u2022\tThank
+    you dear, the two of us have been busy here since we brought our guest in.\r\n\u2022\tAre
+    you all sure?\r\n\u2022\tDon\u2019t worry, there are plenty of visitors coming
+    and going here in the village. When you feel like you\u2019re up to it, you can
+    go and ask around.\r\n\u2022\tThat\u2019s right mom! After falling he must\u2019ve
+    headed for the shore as soon as he was able to. Maybe someone has seen him!\r\nEagerly,
+    the stranger got off the bed. First it was important to check the limbs and movement,
+    followed by stretches, softly at first. After a few small motions she stretched
+    her back fully for that satisfying series of tiny jolts this sent throughout
+    the whole body.\r\n\u2022\tFeels good. Now, you said my clothes are outside?\r\n\u2022\tThat
+    is correct. My children can help you find your way around the village if you
+    want. Won\u2019t you?\r\n\u2022\tYes, of course! This\u2019ll be fun, right?\r\n\u2022\tSure,
+    why not.\r\n\u2022\tThank you, I\u2019m Ronnie.\r\n\u2022\tPleasure to meet you!
+    I\u2019m Paige and this is my brother Glen!\r"
+--- !u!222 &884673271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884673267}
+  m_CullTransparentMesh: 1
+--- !u!1 &964234358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964234359}
+  - component: {fileID: 964234362}
+  - component: {fileID: 964234361}
+  m_Layer: 5
+  m_Name: StoryBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &964234359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964234358}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 216046195}
+  m_Father: {fileID: 849453684}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964234361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964234358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0f4d8b88b8c220e45938a6976254ef40, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &964234362
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964234358}
+  m_CullTransparentMesh: 1
 --- !u!1 &1158810564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,7 +2358,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1243179700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 605941375}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 849453683}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1243179700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,6 +2420,160 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243179697}
+  m_CullTransparentMesh: 1
+--- !u!1 &1260395953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260395954}
+  - component: {fileID: 1260395956}
+  - component: {fileID: 1260395955}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1260395954
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260395953}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1536034149}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.9381443}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1260395955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260395953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4348756123641275562, guid: 0907be2ef6db0f04bb2868da7f6bd415, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1260395956
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260395953}
+  m_CullTransparentMesh: 1
+--- !u!1 &1270678388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270678389}
+  - component: {fileID: 1270678391}
+  - component: {fileID: 1270678390}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1270678389
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270678388}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 768212568}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1270678390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270678388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1b4d4784e352b7040bfd4405bd8cbc7c, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: BACK
+--- !u!222 &1270678391
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270678388}
   m_CullTransparentMesh: 1
 --- !u!1 &1319090411
 GameObject:
@@ -1429,6 +2654,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319090411}
   m_CullTransparentMesh: 1
+--- !u!1 &1536034148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536034149}
+  m_Layer: 5
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1536034149
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536034148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1260395954}
+  m_Father: {fileID: 583317289}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1607280354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +2986,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 605941375}
+      - m_Target: {fileID: 207712708}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1735,7 +2996,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1674689762
 MonoBehaviour:
@@ -1774,6 +3035,52 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674689759}
+  m_CullTransparentMesh: 1
+--- !u!1 &1705663885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705663886}
+  - component: {fileID: 1705663888}
+  m_Layer: 5
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1705663886
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705663885}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 884673268}
+  - {fileID: 557492534}
+  m_Father: {fileID: 548554012}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 4850}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!222 &1705663888
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705663885}
   m_CullTransparentMesh: 1
 --- !u!1 &1837704799
 GameObject:
