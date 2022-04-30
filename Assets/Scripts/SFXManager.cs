@@ -15,6 +15,7 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioSource playerLoseSound;
 
     [SerializeField] AudioSource menuClickSound;
+    [SerializeField] AudioSource menuClickSound1;
     [SerializeField] AudioSource battleTransitionSound;
 
     [SerializeField] public AudioSource stepsSound;
@@ -43,6 +44,9 @@ public class SFXManager : MonoBehaviour
                 break;
             case "click":
                 menuClickSound.Play();
+                break;
+            case "click1":
+                menuClickSound1.Play();
                 break;
             case "battleTransition":
                 battleTransitionSound.Play();

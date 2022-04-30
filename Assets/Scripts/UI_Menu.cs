@@ -22,4 +22,19 @@ public class UI_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OnPauseClick()
+    {
+        Time.timeScale = 0f;
+    }
+    public void OnResumeClick()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void OnMainMenuClick()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
 }

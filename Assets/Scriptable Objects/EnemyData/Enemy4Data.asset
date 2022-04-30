@@ -17,6 +17,6 @@ MonoBehaviour:
   unitModel: {fileID: 2099429572279121367, guid: 70c273fec40af4c42a15f74d3ba623e1, type: 3}
   maxHP: 300
   currentHP: 300
-  unitDP: 30
+  unitDP: 100
   unitHP: 60
   ultraP: 0

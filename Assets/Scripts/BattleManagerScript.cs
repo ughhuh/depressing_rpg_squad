@@ -144,7 +144,7 @@ public class BattleManagerScript : MonoBehaviour
         targetUnit.Heal(targetStats.unitHP); // heal by 5 point, need to modify and set healing points through unitscript
         targetHUD.SetHP(targetStats.currentHP); // updating unit's hp
 
-        yield return new WaitForSeconds(5f); // wait for 1 second
+        yield return new WaitForSeconds(4f); // wait for 1 second
 
         switch (state) // check status and change it accordingly
         {
@@ -156,8 +156,9 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator EnemyTurn() // right now every enemy has the same attack and just does different amount of damage
     {
-        yield return new WaitForSeconds(0.5f); // waiting for 1 second
         StartCoroutine(EnemyAttack());
+
+        yield return new WaitForSeconds(6f);
 
         bool isDead = playerUnit.CheckHP();
         bool isDead01 = ally01Unit.CheckHP();
@@ -199,15 +200,15 @@ public class BattleManagerScript : MonoBehaviour
                 break;
             default: break;
         }
-        StartCoroutine(TypeLine($"{enemyStats.unitName} ATTACKS {targetStats.unitName}!"));
 
+        StartCoroutine(TypeLine($"{enemyStats.unitName} ATTACKS {targetStats.unitName}!"));
         targetUnit.TakeDamage(enemyUnit.enemyDP, true); // add damage to the target
         SFXManager.PlaySound("enemyAttack");
 
         targetHUD.SetHP(targetStats.currentHP); // updating target hp 
         gaugeHUD.SetGauge(enemyUnit.enemyDP); // update damage gauge 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
 
         StartCoroutine(TypeLine($"{targetStats.unitName} TOOK {enemyUnit.enemyDP} DAMAGE"));
         yield return new WaitForSeconds(3f);
