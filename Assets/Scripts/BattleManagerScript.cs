@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -58,6 +56,10 @@ public class BattleManagerScript : MonoBehaviour
 
     public Unit_Stats[] enemyPool; // pool of enemies available for spawning
 
+    [SerializeField] Image playerIcon; // reference to icons
+    [SerializeField] Image ally01Icon;
+    [SerializeField] Image ally02Icon;
+
     void Start()
     {
         transition.SetTrigger("Finish");
@@ -67,6 +69,11 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
+        // make images disabled by default
+        playerIcon.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+        ally01Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+        ally02Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+
         int enemy = Random.Range(0, 5); // randomly pick an enemy to spawn
 
         // spawn units on top of stations
@@ -123,11 +130,12 @@ public class BattleManagerScript : MonoBehaviour
         {
             switch (state) // check the status and change it accordingly
             {
-                case BattleState.PlayerTurn: state = BattleState.Ally01Turn; PlayerTurn(); break;
-                case BattleState.Ally01Turn: state = BattleState.Ally02Turn; PlayerTurn(); break;
-                case BattleState.Ally02Turn: state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
+                case BattleState.PlayerTurn: playerIcon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.Ally01Turn; PlayerTurn(); break;
+                case BattleState.Ally01Turn: ally01Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.Ally02Turn; PlayerTurn(); break;
+                case BattleState.Ally02Turn: ally02Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
             }
         }
+
     }
 
     IEnumerator PlayerHeal()
@@ -146,11 +154,11 @@ public class BattleManagerScript : MonoBehaviour
 
         yield return new WaitForSeconds(4f); // wait for 1 second
 
-        switch (state) // check status and change it accordingly
+        switch (state) // check the status and change it accordingly
         {
-            case BattleState.PlayerTurn: state = BattleState.Ally01Turn; PlayerTurn(); break;
-            case BattleState.Ally01Turn: state = BattleState.Ally02Turn; PlayerTurn(); break;
-            case BattleState.Ally02Turn: state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
+            case BattleState.PlayerTurn: playerIcon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.Ally01Turn; PlayerTurn(); break;
+            case BattleState.Ally01Turn: ally01Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.Ally02Turn; PlayerTurn(); break;
+            case BattleState.Ally02Turn: ally02Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 100); state = BattleState.EnemyTurn; StartCoroutine(EnemyTurn()); break;
         }
     }
 
@@ -278,11 +286,11 @@ public class BattleManagerScript : MonoBehaviour
     
     private void PlayerTurn()
     {
-        switch (state) // check whose turn it is and update them to the target and put their name into line
+        switch (state) // check whose turn it is and update them to the target, enable an icon and put their name into line
         {
-            case BattleState.PlayerTurn: activeName = playerStats.unitName; break;
-            case BattleState.Ally01Turn: activeName = ally01Stats.unitName; break;
-            case BattleState.Ally02Turn: activeName = ally02Stats.unitName; break;
+            case BattleState.PlayerTurn: activeName = playerStats.unitName; playerIcon.GetComponent<Image>().color = new Color32(255, 255, 225, 225); break;
+            case BattleState.Ally01Turn: activeName = ally01Stats.unitName; ally01Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 225); break;
+            case BattleState.Ally02Turn: activeName = ally02Stats.unitName; ally02Icon.GetComponent<Image>().color = new Color32(255, 255, 225, 225); break;
             default: return;
         }
 

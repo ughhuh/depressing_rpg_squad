@@ -5902,6 +5902,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22f1614264c0ce4428585d839d7248ae, type: 2}
   - {fileID: 11400000, guid: f71ca0291da011c41919bc0c80488d40, type: 2}
   - {fileID: 11400000, guid: b9a42f57a2250d74bbb07b2777b45c9e, type: 2}
+  playerIcon: {fileID: 1037899106}
+  ally01Icon: {fileID: 1851874245}
+  ally02Icon: {fileID: 1176550809}
 --- !u!4 &820526359
 Transform:
   m_ObjectHideFlags: 0
