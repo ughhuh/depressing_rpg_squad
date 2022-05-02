@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 75c8b67bda536924d8519b4dd3d0fa79
+guid: 66097021baaf8864f9f72b094ef7ced9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5823116762019304295
-    second: ronnie_body10x_0
+      213: -9028055554045868773
+    second: ronnie_body_0
   - first:
-      213: -8330412852750107487
-    second: ronnie_body10x_1
+      213: 8935455547462215871
+    second: ronnie_body_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ronnie_body10x_0
+      name: ronnie_body_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 330
-        height: 670
+        width: 35
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76398c5c7dddfc050800000000000000
-      internalID: 5823116762019304295
+      spriteID: b158a986e47e5b280800000000000000
+      internalID: -9028055554045868773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ronnie_body10x_1
+      name: ronnie_body_1
       rect:
         serializedVersion: 2
-        x: 330
+        x: 35
         y: 0
-        width: 330
-        height: 670
+        width: 35
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,8 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ac3b7795ad646c80800000000000000
-      internalID: -8330412852750107487
+      spriteID: fb867c47a7d110c70800000000000000
+      internalID: 8935455547462215871
       vertices: []
       indices: 
       edges: []

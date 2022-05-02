@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e9db0bca815311f4f8e0022e5246ba06, type: 3}
+  m_Sprite: {fileID: -5785554223172069693, guid: da6c152a55b555e4695c53869d3a1e6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,3 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 766cef34b505ade4fb9109a0ff257994, type: 2}
+  enemyCurrentHP: 0
+  enemyMaxHP: 0
+  enemyDP: 0
